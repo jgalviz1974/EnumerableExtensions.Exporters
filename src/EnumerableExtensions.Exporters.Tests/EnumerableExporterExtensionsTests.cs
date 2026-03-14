@@ -86,6 +86,31 @@ public class EnumerableExporterExtensionsTests
     }
 
     [Fact]
+    public async Task ExportToCompressedMessagePack_CreatesFile_AndRoundTripsData()
+    {
+        var filePath = GetTempFilePath(".mpack.gz");
+        var data = CreateSampleData();
+
+        try
+        {
+            await data.ExportToCompressedMessagePack(filePath);
+
+            Assert.True(File.Exists(filePath));
+
+            await using var fileStream = File.OpenRead(filePath);
+            await using var gzipStream = new GZipStream(fileStream, CompressionMode.Decompress);
+            var result = await MessagePackSerializer.DeserializeAsync<List<SampleItem>>(gzipStream, MessagePackOptions);
+
+            Assert.NotNull(result);
+            Assert.Equal(data, result);
+        }
+        finally
+        {
+            DeleteIfExists(filePath);
+        }
+    }
+
+    [Fact]
     public async Task ExportToJson_UsesExporterService_FromDependencyInjection()
     {
         var filePath = GetTempFilePath(".json");

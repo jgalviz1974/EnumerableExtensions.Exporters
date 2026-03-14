@@ -45,6 +45,17 @@ public sealed class ExporterService : IExporterService
         await MessagePackSerializer.SerializeAsync(stream, data, MessagePackOptions);
     }
 
+    /// <inheritdoc />
+    public async Task ExportToCompressedMessagePackAsync<T>(IEnumerable<T> data, string filePath)
+    {
+        ValidateArguments(data, filePath);
+        EnsureDirectory(filePath);
+
+        await using var fileStream = File.Create(filePath);
+        await using var gzipStream = new GZipStream(fileStream, CompressionLevel.Optimal);
+        await MessagePackSerializer.SerializeAsync(gzipStream, data, MessagePackOptions);
+    }
+
     private static void ValidateArguments<T>(IEnumerable<T> data, string filePath)
     {
         ArgumentNullException.ThrowIfNull(data);

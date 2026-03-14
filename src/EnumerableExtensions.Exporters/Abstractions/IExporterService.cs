@@ -31,4 +31,13 @@ public interface IExporterService
     /// <param name="filePath">The destination file path.</param>
     /// <returns>A task that completes when export finishes.</returns>
     Task ExportToMessagePackAsync<T>(IEnumerable<T> data, string filePath);
+
+    /// <summary>
+    /// Exports data to a compressed MessagePack file using GZip.
+    /// </summary>
+    /// <typeparam name="T">The element type of the sequence.</typeparam>
+    /// <param name="data">The data to export.</param>
+    /// <param name="filePath">The destination file path.</param>
+    /// <returns>A task that completes when export finishes.</returns>
+    Task ExportToCompressedMessagePackAsync<T>(IEnumerable<T> data, string filePath);
 }

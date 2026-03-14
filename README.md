@@ -2,7 +2,7 @@
 
 Language / Idioma: [English](#english) | [Español](#espanol)
 
-A small .NET library that adds extension methods to `IEnumerable<T>` so collections can be exported to JSON, compressed JSON, and MessagePack.
+A small .NET library that adds extension methods to `IEnumerable<T>` so collections can be exported to JSON, compressed JSON, MessagePack, and compressed MessagePack.
 
 ---
 
@@ -20,6 +20,7 @@ Available extension methods:
 - `ExportToJson`
 - `ExportToCompressedJson`
 - `ExportToMessagePack`
+- `ExportToCompressedMessagePack`
 
 You can use them directly or resolve the exporter through dependency injection.
 
@@ -54,6 +55,7 @@ var people = new[]
 await people.ExportToJson("exports/people.json");
 await people.ExportToCompressedJson("exports/people.json.gz");
 await people.ExportToMessagePack("exports/people.mpack");
+await people.ExportToCompressedMessagePack("exports/people.mpack.gz");
 
 public sealed record Person(int Id, string Name);
 ```
@@ -105,6 +107,13 @@ Creates a compact binary file using MessagePack.
 await people.ExportToMessagePack("exports/people.mpack");
 ```
 
+### Compressed MessagePack
+Creates a GZip-compressed MessagePack file.
+
+```csharp
+await people.ExportToCompressedMessagePack("exports/people.mpack.gz");
+```
+
 ## Behavior notes
 
 - All export operations are asynchronous.
@@ -140,6 +149,7 @@ Métodos de extensión disponibles:
 - `ExportToJson`
 - `ExportToCompressedJson`
 - `ExportToMessagePack`
+- `ExportToCompressedMessagePack`
 
 Puedes usarlos directamente o resolver el exportador mediante inyección de dependencias.
 
@@ -174,6 +184,7 @@ var people = new[]
 await people.ExportToJson("exports/people.json");
 await people.ExportToCompressedJson("exports/people.json.gz");
 await people.ExportToMessagePack("exports/people.mpack");
+await people.ExportToCompressedMessagePack("exports/people.mpack.gz");
 
 public sealed record Person(int Id, string Name);
 ```
@@ -223,6 +234,13 @@ Crea un archivo binario compacto usando MessagePack.
 
 ```csharp
 await people.ExportToMessagePack("exports/people.mpack");
+```
+
+### MessagePack comprimido
+Crea un archivo MessagePack comprimido con GZip.
+
+```csharp
+await people.ExportToCompressedMessagePack("exports/people.mpack.gz");
 ```
 
 ## Notas de comportamiento

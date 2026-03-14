@@ -50,6 +50,19 @@ public static class EnumerableExporterExtensions
         return ResolveExporter(serviceProvider).ExportToMessagePackAsync(data, filePath);
     }
 
+    /// <summary>
+    /// Exports the sequence to a compressed MessagePack file using GZip.
+    /// </summary>
+    /// <typeparam name="T">The element type of the sequence.</typeparam>
+    /// <param name="data">The data to export.</param>
+    /// <param name="filePath">The destination file path.</param>
+    /// <param name="serviceProvider">An optional service provider used to resolve <see cref="IExporterService"/>.</param>
+    /// <returns>A task that completes when export finishes.</returns>
+    public static Task ExportToCompressedMessagePack<T>(this IEnumerable<T> data, string filePath, IServiceProvider? serviceProvider = null)
+    {
+        return ResolveExporter(serviceProvider).ExportToCompressedMessagePackAsync(data, filePath);
+    }
+
     private static IExporterService ResolveExporter(IServiceProvider? serviceProvider)
     {
         return serviceProvider?.GetService<IExporterService>() ?? FallbackExporterService;

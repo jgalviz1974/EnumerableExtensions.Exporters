@@ -13,7 +13,7 @@
 	<RepositoryType>git</RepositoryType>
 	<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<AssemblyVersion>1.0.0.2</AssemblyVersion>
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
