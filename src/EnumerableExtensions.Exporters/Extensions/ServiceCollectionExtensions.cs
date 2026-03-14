@@ -1,8 +1,8 @@
-using EnunerableExtensions.Exporters.Abstractions;
-using EnunerableExtensions.Exporters.Services;
+using EnumerableExtensions.Exporters.Abstractions;
+using EnumerableExtensions.Exporters.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EnunerableExtensions.Exporters.Extensions;
+namespace EnumerableExtensions.Exporters.Extensions;
 
 /// <summary>
 /// Provides dependency injection registration methods for exporter services.

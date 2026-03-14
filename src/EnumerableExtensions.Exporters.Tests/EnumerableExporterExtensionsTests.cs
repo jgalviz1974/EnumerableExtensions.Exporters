@@ -1,11 +1,11 @@
 using System.IO.Compression;
 using System.Text.Json;
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 using MessagePack;
 using MessagePack.Resolvers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EnunerableExtensions.Exporters.Tests;
+namespace EnumerableExtensions.Exporters.Tests;
 
 public class EnumerableExporterExtensionsTests
 {

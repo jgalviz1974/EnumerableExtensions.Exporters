@@ -1,4 +1,4 @@
-namespace EnunerableExtensions.Exporters.Abstractions;
+namespace EnumerableExtensions.Exporters.Abstractions;
 
 /// <summary>
 /// Defines asynchronous export operations for enumerable data.

@@ -4,13 +4,48 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageId>EnumerableExtensions.Exporters</PackageId>
+    <LangVersion>13.0</LangVersion>
+	<Title>EnumerableExtensions.Exporters by Gasolutions - Export Enumerable Data.</Title>
+	<Authors>José David Galviz Muñoz</Authors>
+	<Company>Gasolutions SAS</Company>
+	<Copyright>Gasolutions®</Copyright>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryType>git</RepositoryType>
+	<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<Version>$(AssemblyVersion)</Version>
+	<FileVersion>$(AssemblyVersion)</FileVersion>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	<PackageOutputPath Condition="'$(SolutionDir)' != ''">$(SolutionDir)nupkgs</PackageOutputPath>
+	<PackageOutputPath Condition="'$(SolutionDir)' == ''">$(MSBuildProjectDirectory)\nupkgs</PackageOutputPath>
+	<IsPackable>true</IsPackable>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>EnumerableExtensions.Exporters</PackageId>
     <Description>Extension methods for IEnumerable&lt;T&gt; to export collections into JSON, compressed JSON, and MessagePack formats. Injectable via DI.</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/example/EnunerableExtensions.Exporters</RepositoryUrl>
+    <RepositoryUrl>https://github.com/example/EnumerableExtensions.Exporters</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+	<!-- Leer CHANGELOG.md y poblar PackageReleaseNotes antes de empaquetar -->
+	<Target Name="ReadPackageReleaseNotes" BeforeTargets="GenerateNuspec;Pack">
+		<ReadLinesFromFile File="$(MSBuildProjectDirectory)\CHANGELOG.md">
+			<Output TaskParameter="Lines" ItemName="ReleaseNotesLines" />
+		</ReadLinesFromFile>
+
+		<PropertyGroup>
+			<!-- Unir las líneas leídas en una sola propiedad separada por saltos de línea (%0A) -->
+			<PackageReleaseNotes>@(ReleaseNotesLines->'%(Identity)', '%0A')</PackageReleaseNotes>
+		</PropertyGroup>
+	</Target>
+	
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MessagePack" Version="2.5.187" />

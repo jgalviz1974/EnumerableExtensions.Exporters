@@ -36,13 +36,13 @@ Or reference the project directly during local development.
 ## Namespace
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 ```
 
 ## Basic usage
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 
 var people = new[]
 {
@@ -63,7 +63,7 @@ public sealed record Person(int Id, string Name);
 If you already use `Microsoft.Extensions.DependencyInjection`, register the service like this:
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
@@ -156,13 +156,13 @@ O referencia el proyecto directamente durante el desarrollo local.
 ## Namespace
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 ```
 
 ## Uso básico
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 
 var people = new[]
 {
@@ -183,7 +183,7 @@ public sealed record Person(int Id, string Name);
 Si ya usas `Microsoft.Extensions.DependencyInjection`, registra el servicio así:
 
 ```csharp
-using EnunerableExtensions.Exporters.Extensions;
+using EnumerableExtensions.Exporters.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();

@@ -1,10 +1,10 @@
 using System.IO.Compression;
 using System.Text.Json;
-using EnunerableExtensions.Exporters.Abstractions;
+using EnumerableExtensions.Exporters.Abstractions;
 using MessagePack;
 using MessagePack.Resolvers;
 
-namespace EnunerableExtensions.Exporters.Services;
+namespace EnumerableExtensions.Exporters.Services;
 
 /// <summary>
 /// Provides export operations for enumerable data.
