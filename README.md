@@ -4,8 +4,6 @@ Language / Idioma: [English](#english) | [Español](#espanol)
 
 A small .NET library that adds extension methods to `IEnumerable<T>` so collections can be exported to JSON, compressed JSON, and MessagePack.
 
-> Note: the current public namespace exposed by the library is `EnunerableExtensions.Exporters`.
-
 ---
 
 <a id="english"></a>
