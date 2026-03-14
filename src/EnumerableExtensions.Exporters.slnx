@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EnumerableExtensions.Exporters.Tests/EnumerableExtensions.Exporters.Tests.csproj" />
+  <Project Path="EnumerableExtensions.Exporters/EnumerableExtensions.Exporters.csproj" />
+</Solution>
